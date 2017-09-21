@@ -87,6 +87,7 @@ module.exports = function (context, req, res) {
     postdata = postdata + data;
   })
   .on("end", () => { 
+    console.log("POST data: " + postdata);
     let body = qs.parse(postdata);
     validateToken(context.secrets.WEBHOOK_SECRET, body.token)
       .catch((error) => {
